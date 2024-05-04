@@ -8,7 +8,7 @@ from textual.app import App, ComposeResult
 from textual.widgets import DataTable
 
 
-def read_file() -> List[str]:
+def read_crontab_file() -> List[str]:
     file_name = sys.argv[1]
     lines = []
     with open(file_name, "r") as f:
@@ -18,8 +18,8 @@ def read_file() -> List[str]:
 def parse_crontab():
     entries = []
     pattern = re.compile(r"^(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(.*)$")
-    for line in read_file().splitlines():
-        print(line)
+    raw_file = read_crontab_file()
+    for line in raw_file.splitlines():
         if line.strip() and not line.strip().startswith("#"):
             match = pattern.match(line.strip())
             if match:
