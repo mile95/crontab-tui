@@ -1,0 +1,9 @@
+# Generate mock data every day at midnight
+0 0 * * * /path/to/your/daily_script.sh
+
+# Generate mock data every hour at the beginning of the hour
+0 * * * * /path/to/your/hourly_script.sh
+
+# Generate mock data every 15 minutes
+*/15 * * * * /path/to/your/quarterly_script.sh
+
